@@ -1,5 +1,5 @@
 if CROSS_COMPILING
-SUBDIRS = arch utils io-layer cil metadata $(interpreter_dir) mini dis profiler
+SUBDIRS = arch utils io-layer cil metadata $(interpreter_dir) dis profiler mini
 else
 if MOONLIGHT
 SUBDIRS = arch utils io-layer metadata mini
@@ -27,7 +27,7 @@ moon-do-clean:
     done;
 
 else
-SUBDIRS = arch utils io-layer cil metadata $(interpreter_dir) mini dis monograph tests benchmark profiler
+SUBDIRS = arch utils io-layer cil metadata $(interpreter_dir) dis monograph tests benchmark profiler mini
 endif
 endif
-DIST_SUBDIRS = arch utils io-layer cil metadata interpreter mini dis monograph tests benchmark profiler
+DIST_SUBDIRS = arch utils io-layer cil metadata interpreter dis monograph tests benchmark profiler mini

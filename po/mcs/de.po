@@ -6,10 +6,10 @@ msgstr ""
 "PO-Revision-Date: 2008-09-26 15:14+0100\n"
 "Last-Translator: Daniel Nauck <dna@mono-project.de>\n"
 "Language-Team: http://www.mono-project.de\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
@@ -186,8 +186,8 @@ msgstr ""
 #: mcs/mcs/attribute.cs:1002
 #, csharp-format
 msgid ""
-"The attribute `{0}' is not valid on this declaration type. It is valid on `"
-"{1}' declarations only"
+"The attribute `{0}' is not valid on this declaration type. It is valid on "
+"`{1}' declarations only"
 msgstr ""
 
 #: mcs/mcs/attribute.cs:1024
@@ -1100,8 +1100,8 @@ msgstr ""
 #: mcs/mcs/class.cs:2578
 #, csharp-format
 msgid ""
-"Inconsistent accessibility: base class `{0}' is less accessible than class `"
-"{1}'"
+"Inconsistent accessibility: base class `{0}' is less accessible than class "
+"`{1}'"
 msgstr ""
 
 #: mcs/mcs/class.cs:2586
@@ -1993,8 +1993,8 @@ msgstr ""
 #: mcs/mcs/ecore.cs:5876
 #, csharp-format
 msgid ""
-"An implicitly typed local variable declaration cannot be initialized with `"
-"{0}'"
+"An implicitly typed local variable declaration cannot be initialized with "
+"`{0}'"
 msgstr ""
 
 #: mcs/mcs/ecore.cs:5890
@@ -2121,8 +2121,8 @@ msgstr ""
 #: mcs/mcs/expression.cs:4156
 #, csharp-format
 msgid ""
-"The type `{0}' must have operator `true' and operator `false' defined when `"
-"{1}' is used as a short circuit operator"
+"The type `{0}' must have operator `true' and operator `false' defined when "
+"`{1}' is used as a short circuit operator"
 msgstr ""
 
 #: mcs/mcs/expression.cs:4466
@@ -2365,8 +2365,8 @@ msgstr ""
 #: mcs/mcs/expression.cs:7903
 #, csharp-format
 msgid ""
-"Type `{0}' does not contain a definition for `{1}' and no extension method `"
-"{1}' of type `{0}' could be found (are you missing a using directive or an "
+"Type `{0}' does not contain a definition for `{1}' and no extension method "
+"`{1}' of type `{0}' could be found (are you missing a using directive or an "
 "assembly reference?)"
 msgstr ""
 
@@ -2613,8 +2613,8 @@ msgstr "Verwendung eines möglicherweise nicht zugewiesenen Feldes `"
 #, csharp-format
 msgid "Type parameter `{0}' inherits conflicting constraints `{1}' and `{2}'"
 msgstr ""
-"Der Typparameter  `{0}' erbt die in Konflikt stehenden Einschränkungen  `"
-"{1}' und  `{2}'"
+"Der Typparameter  `{0}' erbt die in Konflikt stehenden Einschränkungen  "
+"`{1}' und  `{2}'"
 
 #: mcs/mcs/generic.cs:173
 #, csharp-format
@@ -2624,8 +2624,8 @@ msgstr ""
 #: mcs/mcs/generic.cs:182
 #, csharp-format
 msgid ""
-"Inconsistent accessibility: constraint type `{0}' is less accessible than `"
-"{1}'"
+"Inconsistent accessibility: constraint type `{0}' is less accessible than "
+"`{1}'"
 msgstr ""
 
 #: mcs/mcs/generic.cs:189 mcs/mcs/generic.cs:203
@@ -2745,8 +2745,8 @@ msgstr ""
 #, fuzzy, csharp-format
 msgid ""
 "The type `{0}' cannot be used as type parameter `{1}' in the generic type or "
-"method `{2}'. There is no boxing or type parameter conversion from `{0}' to `"
-"{3}'"
+"method `{2}'. There is no boxing or type parameter conversion from `{0}' to "
+"`{3}'"
 msgstr ""
 "Der Typ `{0}' muss ein Referenztyp sein, damit er als `{1}'-Parameter in "
 "generischen Typ oder in der generischen Methode `{2}' verwendet werden kann."
@@ -3119,8 +3119,8 @@ msgstr ""
 #: mcs/mcs/method.cs:2157
 #, csharp-format
 msgid ""
-"Attribute `{0}' is not valid on property or event accessors. It is valid on `"
-"{1}' declarations only"
+"Attribute `{0}' is not valid on property or event accessors. It is valid on "
+"`{1}' declarations only"
 msgstr ""
 
 #: mcs/mcs/method.cs:2368
@@ -3325,8 +3325,8 @@ msgstr ""
 #: mcs/mcs/parameter.cs:429
 #, csharp-format
 msgid ""
-"The DefaultParameterValue attribute is not applicable on parameters of type `"
-"{0}'"
+"The DefaultParameterValue attribute is not applicable on parameters of type "
+"`{0}'"
 msgstr ""
 
 #: mcs/mcs/parameter.cs:457

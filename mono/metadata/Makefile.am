@@ -30,7 +30,7 @@ endif
 
 if SHARED_MONO
 if SUPPORT_BOEHM
-bin_PROGRAMS = pedump
+#bin_PROGRAMS = pedump
 endif
 endif
 
@@ -287,29 +287,29 @@ libmonoruntimeinclude_HEADERS = \
 
 if DTRACE_G_REQUIRED
 
-PEDUMP_DTRACE_OBJECT = pedump-dtrace.$(OBJEXT)
+#PEDUMP_DTRACE_OBJECT = pedump-dtrace.$(OBJEXT)
 
-pedump-dtrace.$(OBJEXT): $(top_srcdir)/data/mono.d libmonoruntime.la ../io-layer/libwapi.la ../utils/libmonoutils.la
-	DTRACE="$(DTRACE)" DTRACEFLAGS="$(DTRACEFLAGS)" AR="$(AR)" $(SHELL) $(top_srcdir)/data/dtrace-prelink.sh \
-	--pic pedump-dtrace.$(OBJEXT) $(top_srcdir)/data/mono.d libmonoruntime.la ../io-layer/libwapi.la ../utils/libmonoutils.la
+#pedump-dtrace.$(OBJEXT): $(top_srcdir)/data/mono.d libmonoruntime.la ../io-layer/libwapi.la ../utils/libmonoutils.la
+#	DTRACE="$(DTRACE)" DTRACEFLAGS="$(DTRACEFLAGS)" AR="$(AR)" $(SHELL) $(top_srcdir)/data/dtrace-prelink.sh \
+#	--pic pedump-dtrace.$(OBJEXT) $(top_srcdir)/data/mono.d libmonoruntime.la ../io-layer/libwapi.la ../utils/libmonoutils.la
 
 else
-PEDUMP_DTRACE_OBJECT = 
+#PEDUMP_DTRACE_OBJECT = 
 endif
 
 if SHARED_MONO
 if SUPPORT_BOEHM
-pedump_SOURCES =		\
-	pedump.c
+#pedump_SOURCES =		\
+#	pedump.c
 
-pedump_LDADD = libmonoruntime.la ../io-layer/libwapi.la ../utils/libmonoutils.la \
+#pedump_LDADD = libmonoruntime.la ../io-layer/libwapi.la ../utils/libmonoutils.la \
 	$(LIBGC_LIBS) $(GLIB_LIBS) -lm $(LIBICONV) $(PEDUMP_DTRACE_OBJECT)
 
 if PLATFORM_DARWIN
-pedump_LDFLAGS=-framework CoreFoundation
+#pedump_LDFLAGS=-framework CoreFoundation
 endif
 if PLATFORM_ANDROID
-pedump_LDFLAGS=-lstdc++ -landroid-bridge -L$(top_srcdir)/android
+#pedump_LDFLAGS=-lstdc++ -landroid-bridge -L$(top_srcdir)/android
 endif
 endif
 endif
