@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -234,10 +234,19 @@
   <ItemGroup>
     <ClInclude Include="..\config.h" />
     <ClInclude Include="..\mono\io-layer\io-layer.h" />
+    <ClInclude Include="..\mono\metadata\file-io-native.h" />
+    <ClInclude Include="..\mono\metadata\file-io-pss-glob.h" />
+    <ClInclude Include="..\mono\metadata\file-io-pss.h" />
     <ClInclude Include="..\mono\metadata\profiler-default.h" />
+    <ClInclude Include="..\mono\utils\bsearch.h" />
     <ClInclude Include="..\mono\utils\dlmalloc.h" />
+    <ClInclude Include="..\mono\utils\hazard-pointer.h" />
+    <ClInclude Include="..\mono\utils\lock-free-alloc.h" />
+    <ClInclude Include="..\mono\utils\lock-free-array-queue.h" />
+    <ClInclude Include="..\mono\utils\lock-free-queue.h" />
     <ClInclude Include="..\mono\utils\mono-codeman.h" />
     <ClInclude Include="..\mono\utils\mono-compiler.h" />
+    <ClInclude Include="..\mono\utils\mono-context.h" />
     <ClInclude Include="..\mono\utils\mono-counters.h" />
     <ClInclude Include="..\mono\utils\mono-digest.h" />
     <ClInclude Include="..\mono\utils\mono-dl.h" />
@@ -246,6 +255,7 @@
     <ClInclude Include="..\mono\metadata\mono-hash.h" />
     <ClInclude Include="..\mono\utils\mono-internal-hash.h" />
     <ClInclude Include="..\mono\utils\mono-io-portability.h" />
+    <ClInclude Include="..\mono\utils\mono-linked-list-set.h" />
     <ClInclude Include="..\mono\utils\mono-logger.h" />
     <ClInclude Include="..\mono\utils\mono-math.h" />
     <ClInclude Include="..\mono\utils\mono-membar.h" />
@@ -257,6 +267,7 @@
     <ClInclude Include="..\mono\utils\mono-property-hash.h" />
     <ClInclude Include="..\mono\utils\mono-semaphore.h" />
     <ClInclude Include="..\mono\utils\mono-stdlib.h" />
+    <ClInclude Include="..\mono\utils\mono-threads.h" />
     <ClInclude Include="..\mono\utils\mono-time.h" />
     <ClInclude Include="..\mono\utils\mono-uri.h" />
     <ClInclude Include="..\mono\utils\mono-value-hash.h" />
@@ -332,8 +343,16 @@
     </CustomBuildStep>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\mono\metadata\file-io-native.c" />
+    <ClCompile Include="..\mono\metadata\file-io-pss-glob.c" />
+    <ClCompile Include="..\mono\metadata\file-io-pss.c" />
     <ClCompile Include="..\mono\metadata\mono-cq.c" />
+    <ClCompile Include="..\mono\utils\bsearch.c" />
     <ClCompile Include="..\mono\utils\dlmalloc.c" />
+    <ClCompile Include="..\mono\utils\hazard-pointer.c" />
+    <ClCompile Include="..\mono\utils\lock-free-alloc.c" />
+    <ClCompile Include="..\mono\utils\lock-free-array-queue.c" />
+    <ClCompile Include="..\mono\utils\lock-free-queue.c" />
     <ClCompile Include="..\mono\utils\mono-codeman.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -354,6 +373,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\mono\utils\mono-context.c" />
     <ClCompile Include="..\mono\utils\mono-counters.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -418,6 +438,7 @@
     </ClCompile>
     <ClCompile Include="..\mono\utils\mono-internal-hash.c" />
     <ClCompile Include="..\mono\utils\mono-io-portability.c" />
+    <ClCompile Include="..\mono\utils\mono-linked-list-set.c" />
     <ClCompile Include="..\mono\utils\mono-logger.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -545,6 +566,11 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\mono\utils\mono-stdlib.c" />
+    <ClCompile Include="..\mono\utils\mono-threads-mach.c" />
+    <ClCompile Include="..\mono\utils\mono-threads-posix.c" />
+    <ClCompile Include="..\mono\utils\mono-threads-vita.c" />
+    <ClCompile Include="..\mono\utils\mono-threads-windows.c" />
+    <ClCompile Include="..\mono\utils\mono-threads.c" />
     <ClCompile Include="..\mono\utils\mono-time.c" />
     <ClCompile Include="..\mono\utils\mono-uri.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
