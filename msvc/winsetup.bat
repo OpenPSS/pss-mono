@@ -1,6 +1,6 @@
 @echo off
 cd ..
-copy winconfig.h config.h
+copy winconfig-sgen.h config.h
 goto end
 :error
 echo fatal error: the VSDepenancies directory was not found in the "mono" directory

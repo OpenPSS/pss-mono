@@ -1,4 +1,4 @@
-﻿Build started 9/12/2022 8:45:42 AM.
+﻿Build started 9/12/2022 12:21:32 PM.
 Project "C:\Users\Li\Desktop\PSM\pss-mono\msvc\genmdesc.vcxproj" on node 2 (clean target(s)).
 _PrepareForClean:
   Deleting file "Win32\obj\genmdesc\genmdesc.lastbuildstate".
@@ -6,4 +6,4 @@ Done Building Project "C:\Users\Li\Desktop\PSM\pss-mono\msvc\genmdesc.vcxproj" (
 
 Build succeeded.
 
-Time Elapsed 00:00:00
+Time Elapsed 00:00:00.03

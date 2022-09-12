@@ -70,7 +70,7 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\obj\$(ProjectName)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mono-2.0</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mono-2.0</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">monosgen-2.0</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mono-2.0</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mono-2.0</TargetName>
   </PropertyGroup>
@@ -238,6 +238,14 @@
     <ClInclude Include="..\mono\metadata\file-io-pss-glob.h" />
     <ClInclude Include="..\mono\metadata\file-io-pss.h" />
     <ClInclude Include="..\mono\metadata\profiler-default.h" />
+    <ClInclude Include="..\mono\metadata\sgen-archdep.h" />
+    <ClInclude Include="..\mono\metadata\sgen-bridge.h" />
+    <ClInclude Include="..\mono\metadata\sgen-cardtable.h" />
+    <ClInclude Include="..\mono\metadata\sgen-gc.h" />
+    <ClInclude Include="..\mono\metadata\sgen-major-copy-object.h" />
+    <ClInclude Include="..\mono\metadata\sgen-major-scan-object.h" />
+    <ClInclude Include="..\mono\metadata\sgen-protocol.h" />
+    <ClInclude Include="..\mono\metadata\sgen-scan-object.h" />
     <ClInclude Include="..\mono\utils\bsearch.h" />
     <ClInclude Include="..\mono\utils\dlmalloc.h" />
     <ClInclude Include="..\mono\utils\hazard-pointer.h" />
@@ -347,6 +355,24 @@
     <ClCompile Include="..\mono\metadata\file-io-pss-glob.c" />
     <ClCompile Include="..\mono\metadata\file-io-pss.c" />
     <ClCompile Include="..\mono\metadata\mono-cq.c" />
+    <ClCompile Include="..\mono\metadata\sgen-bridge.c" />
+    <ClCompile Include="..\mono\metadata\sgen-gc.c" />
+    <ClCompile Include="..\mono\metadata\sgen-hash-table.c" />
+    <ClCompile Include="..\mono\metadata\sgen-internal.c" />
+    <ClCompile Include="..\mono\metadata\sgen-los.c" />
+    <ClCompile Include="..\mono\metadata\sgen-major-copying.c" />
+    <ClCompile Include="..\mono\metadata\sgen-marksweep-fixed-par.c" />
+    <ClCompile Include="..\mono\metadata\sgen-marksweep-fixed.c" />
+    <ClCompile Include="..\mono\metadata\sgen-marksweep-par.c" />
+    <ClCompile Include="..\mono\metadata\sgen-marksweep.c" />
+    <ClCompile Include="..\mono\metadata\sgen-nursery-allocator.c" />
+    <ClCompile Include="..\mono\metadata\sgen-os-mach.c" />
+    <ClCompile Include="..\mono\metadata\sgen-os-posix.c" />
+    <ClCompile Include="..\mono\metadata\sgen-os-vita.c" />
+    <ClCompile Include="..\mono\metadata\sgen-os-win32.c" />
+    <ClCompile Include="..\mono\metadata\sgen-pinned-allocator.c" />
+    <ClCompile Include="..\mono\metadata\sgen-protocol.c" />
+    <ClCompile Include="..\mono\metadata\sgen-toggleref.c" />
     <ClCompile Include="..\mono\utils\bsearch.c" />
     <ClCompile Include="..\mono\utils\dlmalloc.c" />
     <ClCompile Include="..\mono\utils\hazard-pointer.c" />
