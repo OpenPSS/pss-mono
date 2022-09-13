@@ -12,6 +12,9 @@
  */
 #include "mini.h"
 #include <string.h>
+#ifdef _MSC_VER // Fix for VS2022
+#undef trunc(x)
+#endif
 #include <math.h>
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>

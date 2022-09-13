@@ -1,6 +1,9 @@
 #ifndef __MONO_JIT_ICALLS_H__
 #define __MONO_JIT_ICALLS_H__
 
+#ifdef _MSC_VER // Fix for VS2022
+#undef trunc(x)
+#endif
 #include <math.h>
 
 #include "mini.h"

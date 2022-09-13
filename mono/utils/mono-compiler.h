@@ -199,6 +199,7 @@
 #ifdef _MSC_VER
 
 #include <float.h>
+
 #define isnan(x)	_isnan(x)
 #define trunc(x)	(((x) < 0) ? ceil((x)) : floor((x)))
 #define isinf(x)	(_isnan(x) ? 0 : (_fpclass(x) == _FPCLASS_NINF) ? -1 : (_fpclass(x) == _FPCLASS_PINF) ? 1 : 0)

@@ -17,6 +17,9 @@
  *
  ***************************************************************/
 #include "strtod.h"
+#ifdef _MSC_VER // Fix for VS2022
+#undef trunc(x)
+#endif
 #include <glib.h>
 #define freedtoa __freedtoa
 #define dtoa __dtoa
