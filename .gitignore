@@ -36,3 +36,8 @@
 /lt~obsolete.m4
 /ltversion.m4
 *~
+/msvc2022/Win32/*
+/msvc2022/Release/*
+/msvc2022/.vs/*
+/mcs/jay/Release/*
+

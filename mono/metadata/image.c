@@ -1050,7 +1050,7 @@ do_mono_image_open (const char *fname, MonoImageOpenStatus *status,
 	MonoFileMap *filed = NULL;
 	CryptoContext context;
 
-#if defined(TARGET_WIN32) || (defined(__linux__) && !defined(TARGET_ANDROID)) || defined(PSS_CRYPTO_DISABLED)
+#if !defined(PSS_USE_CRYPTO) &&  ( defined(TARGET_WIN32) || (defined(__linux__) || !defined(TARGET_ANDROID)) || defined(PSS_CRYPTO_DISABLED) )
 	context.valid = 0;
 
 	if ((filed = mono_file_map_open (fname)) == NULL){

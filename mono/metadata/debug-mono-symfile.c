@@ -45,13 +45,23 @@
 #define TYPE_TABLE_PTR_CHUNK_SIZE	256
 #define TYPE_TABLE_CHUNK_SIZE		65536
 
+// make crypto work on win32 target.
+#if defined(TARGET_WIN32)
+typedef struct _PssCryptoContext {
+	int handle;
+	int valid;
+	int size;
+	int type;
+} PssCryptoContext;
+#endif
+
 #if defined(PLATFORM_ANDROID)
 #include "android-bridge.h"
-//#define PSS_USE_CRYPTO
+#define PSS_USE_CRYPTO
 #endif
 
 #if defined(TARGET_VITA)
-//#define PSS_USE_CRYPTO
+#define PSS_USE_CRYPTO
 #include "bridge.h"
 #endif
 
