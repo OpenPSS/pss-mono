@@ -30,6 +30,10 @@
 #include <sys/mkdev.h>
 #endif
 
+#ifdef __linux__
+#include <sys/sysmacros.h>
+#endif
+
 /* sys/resource.h (for rusage) is required when using osx 10.3 (but not 10.4) */
 #ifdef __APPLE__
 #include <sys/resource.h>
