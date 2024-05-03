@@ -8,7 +8,7 @@ fi
 
 # "mono/mini/.libs/libmonosgen-static.a" is the file you're after
 build() {
-    make CFLAGS='-DTARGET_PSS -DPSS_USE_CRYPTO -DHAVE_ISINF=1 -include sys/sysmacros.h' -j"$(nproc)" "$@"
+    make CFLAGS='-DTARGET_PSS -DPSS_USE_CRYPTO -DHAVE_ISINF=1' -j"$(nproc)" "$@"
 } &&
 build -C libgc &&
 build -C mono/io-layer &&
