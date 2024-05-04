@@ -55,6 +55,12 @@ typedef struct _PssCryptoContext {
 } PssCryptoContext;
 #endif
 
+// add headers for pss_crypto functions.. (fixes x64)
+int pss_crypto_open(PssCryptoContext* context, const char* path);
+char* pss_crypto_read(PssCryptoContext* context);
+int pss_crypto_fread(PssCryptoContext* context, char* buffer, int bytes);
+void pss_crypto_close(PssCryptoContext* context);
+
 #if defined(PLATFORM_ANDROID)
 #include "android-bridge.h"
 #define PSS_USE_CRYPTO
