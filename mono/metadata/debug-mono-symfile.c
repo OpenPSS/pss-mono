@@ -45,6 +45,12 @@
 #define TYPE_TABLE_PTR_CHUNK_SIZE	256
 #define TYPE_TABLE_CHUNK_SIZE		65536
 
+// add headers for pss_crypto functions.. (fixes x64)
+int pss_crypto_open(PssCryptoContext* context, const char* path);
+char* pss_crypto_read(PssCryptoContext* context);
+int pss_crypto_fread(PssCryptoContext* context, char* buffer, int bytes);
+void pss_crypto_close(PssCryptoContext* context);
+
 // make crypto work on win32 and linux target.
 #if defined(TARGET_WIN32) || defined(__linux__)
 typedef struct _PssCryptoContext {
