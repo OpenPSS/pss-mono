@@ -1011,6 +1011,13 @@ typedef struct _CryptoContext {
 #define PSS_USE_CRYPTO
 #endif
 
+int pss_crypto_open(CryptoContext* context, const char* path);
+char* pss_crypto_read(CryptoContext* context);
+int pss_crypto_fread(CryptoContext* context, char* buffer, int bytes);
+void pss_crypto_close(CryptoContext* context);
+#define PSS_USE_CRYPTO
+
+
 static int
 open_encrypted (CryptoContext *context, const char *path)
 {
@@ -1050,8 +1057,13 @@ do_mono_image_open (const char *fname, MonoImageOpenStatus *status,
 	MonoFileMap *filed = NULL;
 	CryptoContext context;
 
-#if !defined(PSS_USE_CRYPTO) &&  ( defined(TARGET_WIN32) || (defined(__linux__) || !defined(TARGET_ANDROID)) || defined(PSS_CRYPTO_DISABLED) )
+	#if !defined(PSS_USE_CRYPTO)
+	#error no pss = no psm
+	#endif
+
+#if !defined(PSS_USE_CRYPTO) || defined(PSS_CRYPTO_DISABLED)
 	context.valid = 0;
+	printf("HIIIII %s\n", fname);
 
 	if ((filed = mono_file_map_open (fname)) == NULL){
 		if (IS_PORTABILITY_SET) {
@@ -1080,6 +1092,7 @@ do_mono_image_open (const char *fname, MonoImageOpenStatus *status,
 	image->raw_buffer_used = TRUE;
 	image->raw_data_len = context.valid? context.size: mono_file_map_size (filed);
 	if (context.valid) {
+		printf("load_encrypted\n");
 		image->raw_data = load_encrypted (&context);
 		image->raw_data_allocated = TRUE;
 		image->raw_buffer_used = FALSE;

@@ -35,7 +35,7 @@ typedef struct _CryptoContext {
 #define PSS_USE_CRYPTO
 #endif
 
-#undef PSS_USE_CRYPTO
+//#undef PSS_USE_CRYPTO
 
 /*
  * The IO layer assumes that file handles are small integers numbered from 0. So we store our

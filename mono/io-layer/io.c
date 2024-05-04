@@ -60,7 +60,7 @@ typedef struct _CryptoContext {
 #define PSS_USE_CRYPTO
 #endif
 
-#undef PSS_USE_CRYPTO
+//#undef PSS_USE_CRYPTO
 
 static void file_close (gpointer handle, gpointer data);
 static WapiFileType file_getfiletype(void);
