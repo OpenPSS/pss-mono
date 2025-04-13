@@ -163,6 +163,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>version.lib;libgc.lib;eglib.lib;ws2_32.lib;Psapi.lib;winmm.lib;mswsock.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -239,6 +240,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>version.lib;libgc.lib;eglib.lib;ws2_32.lib;Psapi.lib;winmm.lib;mswsock.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
