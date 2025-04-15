@@ -1092,7 +1092,6 @@ do_mono_image_open (const char *fname, MonoImageOpenStatus *status,
 	image->raw_buffer_used = TRUE;
 	image->raw_data_len = context.valid? context.size: mono_file_map_size (filed);
 	if (context.valid) {
-		printf("load_encrypted\n");
 		image->raw_data = load_encrypted (&context);
 		image->raw_data_allocated = TRUE;
 		image->raw_buffer_used = FALSE;
