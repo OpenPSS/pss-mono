@@ -854,6 +854,5 @@ mono_win32_compat_FillMemory
 mono_win32_compat_MoveMemory
 mono_win32_compat_ZeroMemory
 mono_xdebug_flush
-mono_set_exit_callback
 pss_io_icall_install_functions
-
+mono_exit
