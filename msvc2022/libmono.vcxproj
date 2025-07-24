@@ -89,7 +89,7 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\libgc\include;..\;..\mono\;..\mono\jit;..\mono\eglib\src;..\eglib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>TARGET_X86;_DEBUG;__i386__;i386;WIN32;_WIN32;__WIN32__;_WINDOWS;WINDOWS;HOST_WIN32;TARGET_WIN32;TARGET_PSS;_CRT_SECURE_NO_DEPRECATE;GC_NOT_DLL;HAVE_CONFIG_H;WINVER=0x0500;_WIN32_WINNT=0x0500;_WIN32_IE=0x0501;WIN32_THREADS;FD_SETSIZE=1024;MONO_ASSEMBLIES=".";__default_codegen__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TARGET_X86;_DEBUG;__i386__;i386;WIN32;_WIN32;__WIN32__;_WINDOWS;WINDOWS;HOST_WIN32;TARGET_WIN32;TARGET_PSS;PSS_USE_CRYPTO;_CRT_SECURE_NO_DEPRECATE;GC_NOT_DLL;HAVE_CONFIG_H;WINVER=0x0500;_WIN32_WINNT=0x0500;_WIN32_IE=0x0501;WIN32_THREADS;FD_SETSIZE=1024;MONO_ASSEMBLIES=".";__default_codegen__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -131,7 +131,7 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\libgc\include;..\;..\mono\;..\mono\jit;..\mono\eglib\src;..\eglib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>TARGET_X86;_DEBUG;__i386__;i386;WIN32;_WIN32;__WIN32__;_WINDOWS;WINDOWS;HOST_WIN32;TARGET_WIN32;TARGET_PSS;_CRT_SECURE_NO_DEPRECATE;GC_NOT_DLL;HAVE_CONFIG_H;WINVER=0x0500;_WIN32_WINNT=0x0500;_WIN32_IE=0x0501;WIN32_THREADS;FD_SETSIZE=1024;MONO_ASSEMBLIES=".";__default_codegen__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TARGET_X86;_DEBUG;__i386__;i386;WIN32;_WIN32;__WIN32__;_WINDOWS;WINDOWS;HOST_WIN32;TARGET_WIN32;TARGET_PSS;PSS_USE_CRYPTO;_CRT_SECURE_NO_DEPRECATE;GC_NOT_DLL;HAVE_CONFIG_H;WINVER=0x0500;_WIN32_WINNT=0x0500;_WIN32_IE=0x0501;WIN32_THREADS;FD_SETSIZE=1024;MONO_ASSEMBLIES=".";__default_codegen__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -175,7 +175,7 @@
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\libgc\include;..\;..\mono\;..\mono\jit;..\mono\eglib\src;..\eglib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;__i386__;TARGET_X86;i386;WIN32;_WIN32;__WIN32__;_WINDOWS;WINDOWS;HOST_WIN32;TARGET_WIN32;TARGET_PSS;_CRT_SECURE_NO_DEPRECATE;GC_NOT_DLL;HAVE_CONFIG_H;WINVER=0x0500;_WIN32_WINNT=0x0500;_WIN32_IE=0x0501;WIN32_THREADS;FD_SETSIZE=1024;MONO_ASSEMBLIES=".";__default_codegen__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;__i386__;TARGET_X86;i386;WIN32;_WIN32;__WIN32__;_WINDOWS;WINDOWS;HOST_WIN32;TARGET_WIN32;TARGET_PSS;PSS_USE_CRYPTO;_CRT_SECURE_NO_DEPRECATE;GC_NOT_DLL;HAVE_CONFIG_H;WINVER=0x0500;_WIN32_WINNT=0x0500;_WIN32_IE=0x0501;WIN32_THREADS;FD_SETSIZE=1024;MONO_ASSEMBLIES=".";__default_codegen__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>

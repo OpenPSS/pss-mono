@@ -2733,7 +2733,7 @@ mono_assembly_load_corlib (const MonoRuntimeInfo *runtime, MonoImageOpenStatus *
 			return corlib;
 	}
 
-#if defined(TARGET_VITA)
+#if defined(TARGET_VITA) || defined(PSS_USE_CRYPTO)
     /* On the PSP2, check if the assembly is in the same folder as the application */
     {
         char *tempasm[2];

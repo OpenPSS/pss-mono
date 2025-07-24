@@ -524,7 +524,8 @@ mono_config_for_assembly (MonoImage *assembly)
 	home = g_get_home_dir ();
 
 	for (i = 0; (aname = get_assembly_filename (assembly, i)) != NULL; ++i) {
-		cfg = g_build_filename (mono_get_config_dir (), "mono", "assemblies", aname, cfg_name, NULL);
+		cfg = 
+			(mono_get_config_dir (), "mono", "assemblies", aname, cfg_name, NULL);
 		got_it += mono_config_parse_file_with_context (&state, cfg);
 		g_free (cfg);
 
