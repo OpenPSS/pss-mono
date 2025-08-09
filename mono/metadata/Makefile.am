@@ -247,7 +247,7 @@ endif
 endif
 
 libmonoruntimesgen_la_SOURCES = $(libmonoruntime_la_SOURCES)
-libmonoruntimesgen_la_CFLAGS = $(SGEN_DEFINES)
+libmonoruntimesgen_la_CFLAGS = $(SGEN_DEFINES) $(PSM_DEFINES)
 
 libmonoruntime_static_la_SOURCES = $(libmonoruntime_la_SOURCES)
 libmonoruntime_static_la_LDFLAGS = -static

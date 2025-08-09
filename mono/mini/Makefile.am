@@ -93,16 +93,20 @@ libmono_2_0_la_LDFLAGS=$(monoldflags) -version-info 1:0:0
 endif
 
 if JIT_SUPPORTED
-
 if SUPPORT_SGEN
+if !ENABLE_PSS_CRYPTO
 sgen_binaries = mono-sgen
+endif
 sgen_libraries = libmonosgen-2.0.la
 sgen_static_libraries = libmonosgen-static.la
 endif
 
 if SUPPORT_BOEHM
 boehm_libraries = libmono-2.0.la
+if !ENABLE_PSS_CRYPTO
 boehm_binaries  = mono
+endif
+
 endif
 
 if HOST_WIN32
@@ -117,8 +121,8 @@ if SHARED_MONO
 shared_libraries = $(boehm_libraries) $(sgen_libraries)
 endif
 
-lib_LTLIBRARIES = $(shared_libraries)
-noinst_LTLIBRARIES = libmono-static.la $(sgen_static_libraries)
+lib_LTLIBRARIES = libmono-static.la $(sgen_static_libraries) $(shared_libraries)
+noinst_LTLIBRARIES  = 
 
 if MOONLIGHT
 noinst_LTLIBRARIES += libmono-moon.la

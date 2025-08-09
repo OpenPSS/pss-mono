@@ -574,6 +574,15 @@ if test x$cross_compiling$host_win32 = xnoyes; then
   esac
 fi
 
+dnl check if ps mobile enabled
+dnl needs to pass TARGET_PSS to eglib build
+AC_ARG_ENABLE(pss, [  --enable-pss            Enable PlayStation Suite], enable_pss=$enableval, enable_pss=${enable_pss:-yes} )
+AC_ARG_ENABLE(pss-crypto, [  --disable-pss-crypto    Disable Cryptography in PlayStation Suite], enable_pss_crypto=$enableval, enable_pss_crypto=${enable_pss:-yes} )
+
+if test x$enable_pss != xno; then
+  enable_mcs_build=no
+fi
+
 ## Maybe should also disable if mcsdir is invalid.  Let's punt the issue for now.
 AM_CONDITIONAL(BUILD_MCS, [test x$cross_compiling = xno && test x$enable_mcs_build != xno])
 
@@ -630,7 +639,12 @@ AC_ARG_WITH(crosspkgdir, [  --with-crosspkgdir=/path/to/pkg-config/dir      Chan
 	fi
 )
 
-ac_configure_args="$ac_configure_args \"CPPFLAGS_FOR_EGLIB=$EGLIB_CPPFLAGS\" \"CFLAGS_FOR_EGLIB=$CFLAGS_FOR_EGLIB\""
+if test x$enable_pss = xyes; then
+    CFLAGS_FOR_EGLIB+=' -DTARGET_PSS'
+fi
+
+
+ac_configure_args="$ac_configure_args \"CPPFLAGS_FOR_EGLIB=$CPPFLAGS_FOR_EGLIB\" \"CFLAGS_FOR_EGLIB=$CFLAGS_FOR_EGLIB\""
 AC_CONFIG_SUBDIRS(eglib)
 
 GLIB_CFLAGS='-I$(top_srcdir)/eglib/src -I$(top_builddir)/eglib/src'
@@ -679,7 +693,8 @@ fi
 
 AM_CONDITIONAL(STATIC_MONO, test x$with_static_mono != xno)
 AM_CONDITIONAL(SHARED_MONO, test x$with_shared_mono != xno)
-AC_ARG_ENABLE(mcs-build, [  --disable-mcs-build disable the build of the mcs directory], try_mcs_build=$enableval, enable_mcs_build=yes)
+AC_ARG_ENABLE(mcs-build, [  --disable-mcs-build disable the build of the mcs directory], 
+try_mcs_build=$enableval, enable_mcs_build=yes)
 
 AC_ARG_WITH(xen_opt,   [  --with-xen_opt=yes,no          Enable Xen-specific behaviour (defaults to yes)],[],[with_xen_opt=yes])
 if test "x$with_xen_opt" = "xyes"; then
@@ -723,6 +738,33 @@ AC_ARG_ENABLE(minimal, [  --enable-minimal=LIST      drop support for LIST subsy
 ],[])
 
 AC_DEFINE_UNQUOTED(DISABLED_FEATURES, "$DISABLED_FEATURES", [String of disabled features])
+
+dnl
+dnl Playstation Mobile configuration
+dnl
+
+if test x$enable_pss = xyes; then
+    CFLAGS+=" -DTARGET_PSS"
+    enable_mcs_build=no
+    try_mcs_build=no
+    with_sgen=yes
+    buildsgen=yes
+    enable_static=yes
+    with_static_mono=yes
+    with_gc=sgen
+    mono_feature_disable_profiler=yes
+    gc=sgen
+fi
+
+if test x$enable_pss_crypto = xyes; then
+    CFLAGS+=" -DPSS_USE_CRYPTO"
+else
+    CFLAGS+=" -DPSS_CRYPTO_DISABLED"
+fi
+AM_CONDITIONAL(ENABLE_PSS, [test x$enable_pss = xyes])
+AM_CONDITIONAL(ENABLE_PSS_CRYPTO, [test x$enable_pss_crypto = xyes])
+
+dnl feature checks
 
 if test "x$mono_feature_disable_aot" = "xyes"; then
 	AC_DEFINE(DISABLE_AOT_COMPILER, 1, [Disable AOT Compiler])
@@ -875,6 +917,12 @@ if test x$enable_parallel_mark = xyes; then
 fi
 
 AC_ARG_ENABLE(boehm, [  --disable-boehm            Disable the Boehm GC.], support_boehm=$enableval,support_boehm=${support_boehm:-yes})
+
+dnl handle playstation mobile case
+if test x$enable_pss = xyes; then
+    support_boehm=no
+fi
+
 AM_CONDITIONAL(SUPPORT_BOEHM, test x$support_boehm = xyes)
 
 dnl
@@ -969,6 +1017,7 @@ AC_SUBST(LIBGC_LIBS)
 AC_SUBST(LIBGC_STATIC_LIBS)
 AC_SUBST(libgc_dir)
 AC_SUBST(BOEHM_DEFINES)
+
 
 dnl
 dnl End of libgc checks
@@ -3023,9 +3072,9 @@ mono/tests/cas/inheritance/Makefile
 mono/tests/cas/linkdemand/Makefile
 mono/tests/cas/threads/Makefile
 mono/benchmark/Makefile
-mono/monograph/Makefile
 mono/io-layer/Makefile
 mono/mini/Makefile
+mono/monograph/Makefile
 mono/profiler/Makefile
 m4/Makefile
 ikvm-native/Makefile
@@ -3186,6 +3235,10 @@ echo "
 	LLVM Back End: $enable_llvm (dynamically loaded: $enable_loadedllvm)
 
     Libraries:
+
+	PlayStation Suite:        $enable_pss
+	PlayStation Suite Crypto: $enable_pss_crypto
+
 	Moon Profile:  $with_moonlight ($with_moon_gc)
 	MonoDroid:     $with_monodroid
 	MonoTouch:     $with_monotouch

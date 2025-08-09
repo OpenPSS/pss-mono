@@ -31,3 +31,4 @@ SUBDIRS = arch utils io-layer cil metadata $(interpreter_dir) dis monograph test
 endif
 endif
 DIST_SUBDIRS = arch utils io-layer cil metadata interpreter dis monograph tests benchmark profiler mini
+
