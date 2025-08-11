@@ -41,7 +41,7 @@ dnl
 # and block compilation on gnu99, in theroy you could and probably should update pss-mono to do this properly
 # ideally it would target the latest c17 or something, but for now this is enough to make it work;
 
-CFLAGS+='-std=gnu89'
+CFLAGS+=' -std=gnu89'
 
 dnl
 dnl libgc checks
