@@ -28,6 +28,13 @@ case $host_os in
 *cygwin* ) LN_S='cp -p';;
 esac
 
+
+dnl
+dnl Required to build in newer versions of GCC.
+dnl
+CFLAGS='-Wimplicit-function-declaration -std=gnu99 $CFLAGS'
+
+
 dnl
 dnl libgc checks
 dnl
