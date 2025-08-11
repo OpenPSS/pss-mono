@@ -29,11 +29,19 @@ case $host_os in
 esac
 
 
-dnl
-dnl Required to build in newer versions of GCC.
-dnl
-CFLAGS='-Wimplicit-function-declaration -std=gnu99 $CFLAGS'
 
+dnl
+dnl set c standard
+dnl
+
+# Required to build in newer versions of GCC.
+# i beleive the mono code was written targeting gnu89, standard,
+# all of these warnings were made into errors in C99, but are just warnings in C89.
+# -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types -Wno-error=int-conversion
+# and block compilation on gnu99, in theroy you could and probably should update pss-mono to do this properly
+# ideally it would target the latest c17 or something, but for now this is enough to make it work;
+
+CFLAGS+='-std=gnu89'
 
 dnl
 dnl libgc checks
