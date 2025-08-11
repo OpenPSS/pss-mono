@@ -46,7 +46,7 @@
 #define TYPE_TABLE_CHUNK_SIZE		65536
 
 // make crypto work on win32 and linux target.
-#if defined(TARGET_WIN32) || defined(__linux__)
+#if defined(PSS_USE_CRYPTO)
 typedef struct _PssCryptoContext {
 	int handle;
 	int valid;
