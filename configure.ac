@@ -342,6 +342,7 @@ case "$host" in
 		need_link_unlink=yes
 		AC_DEFINE(PTHREAD_POINTER_ID)
 		libgc_threads=pthreads
+		with_tls=pthread
 		use_sigposix=yes
 		;;
 	*)
@@ -2291,6 +2292,7 @@ case "$host" in
 			;;
 		  haiku*)
 			LIBC=libroot.so
+			sgen_supported=true
 			;;
 		  linux*)
 			sgen_supported=true
@@ -2309,6 +2311,10 @@ case "$host" in
 		  linux*)
 			sgen_supported=true
 			AOT_SUPPORTED="yes"
+			;;
+		  haiku*)
+			LIBC=libroot.so
+			sgen_supported=true
 			;;
 		  darwin*|openbsd*|freebsd*)
 			sgen_supported=true
